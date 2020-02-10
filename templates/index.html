@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    <title>Wuhan detector</title>
+</head>
+<body>
+    <h1 style="text-align:center;">Wuhan detector</h1>
+    <h2 style="text-align:center;">Find out how likely you have Wuhan</h2>
+    {% if risk %}
+        {% if risk >= 3 %}
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Warning!</h4>
+            <p>There is serious risk of you contracting Wu han! Please seek medical assistance as soon as possible!</p>
+            <hr>
+            <p class="mb-0">note: This is based off data at <a href = "https://www.medicinenet.com/wuhan_coronavirus_2019-ncov/article.htm">www.medicinenet.com</a></p>
+        </div>
+        {% endif %}
+        {% if risk == 2 %}
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">Warning!</h4>
+            <p>There is small risk of you contracting Wu han! Please monitor your condition and visit the doctor if it gets worse!</p>
+            <hr>
+            <p class="mb-0">note: This is based off data at <a href = "https://www.medicinenet.com/wuhan_coronavirus_2019-ncov/article.htm">www.medicinenet.com</a></p>
+        </div>
+        {% endif %}
+        {% if risk == 1 %}
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Safe!</h4>
+            <p>You are in no risk of contrating Wu han! However, do take note to regularly wash your hands and stay alert and health concious.</p>
+            <hr>
+            <p class="mb-0">note: This is based off data at <a href = "https://www.medicinenet.com/wuhan_coronavirus_2019-ncov/article.htm">www.medicinenet.com</a></p>
+        </div>
+        {% endif %}
+        <h4 style = "margin-left: 10px;"> Try again? </h4>
+    {% endif %}
+    <form action = "/submit" style = "margin-left: 10px;">
+        <div class="form-group">
+            <label class="form-check-label" for="defaultCheck1">
+                Enter your temperature(Celcius): 
+            </label>
+            <input class=".form-control-plaintext" type = "number" min = "32" max = "41" step = "0.1" name = "temp" style="-moz-appearance: textfield;" required>
+        </div>
+        <fieldset class="form-group">
+            <div class="row">
+                <div class="form-check">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Do you have any travel history to China recently?
+                    </label>
+                <input class=".form-control-plaintext" type = "checkbox" name = "travel">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-check">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Do you have a cough?
+                    </label>
+                    <input type = "checkbox" class=".form-control-plaintext" name = "cough">
+                </div>
+            </div>
+            <div class = "row">
+                <div class="form-check">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Do you experience any shortness of breath?
+                    </label>
+                
+                <input type = "checkbox" class=".form-control-plaintext" name = "breath">
+                </div>
+            </div>
+            <div class = "row">
+                <div class="form-check">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Have you eaten animals(i.e. bats) from China?
+                    </label>
+                <input type = "checkbox" class=".form-control-plaintext" name = "eat">
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <input type = "submit" value = "Submit" class="btn btn-primary" >
+        </div>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
